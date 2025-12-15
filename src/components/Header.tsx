@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { useEffect, useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAppStore } from "../stores/useAppStore";
 
@@ -10,8 +10,9 @@ export default function Header() {
     
     const { pathname } = useLocation()//detectar la ruta en la cual está el usuario
     const isHome = useMemo(() => pathname === "/", [pathname])
-    const fetchCategories = useAppStore((state) => state.fetchCategories);
     const categories = useAppStore((state) => state.categories);
+    const fetchCategories = useAppStore((state) => state.fetchCategories);
+    const searchRecipes = useAppStore((state) => state.searchRecipes);
 
     useEffect(() => {
         fetchCategories();
@@ -22,6 +23,19 @@ export default function Header() {
             ...searchFilters,
             [e.target.name]: e.target.value,
         })
+    }
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        //validar
+        if(Object.values(searchFilters).includes("")){
+            console.log("Todos los campos son obligatorios");
+            return;
+        }
+
+        //consultar las recetas
+        searchRecipes(searchFilters);
     }
 
     return (
@@ -38,7 +52,7 @@ export default function Header() {
                 </div>
 
                 {isHome && (
-                    <form action="" className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow  space-y-6">
+                    <form onSubmit={handleSubmit} className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow  space-y-6">
                         <div className="space-y-4">
                             <label htmlFor="ingredient" className="block text-white uppercase font-extrabold text-lg">Nombre o Ingrediente</label>
                             <input type="text" name="ingredient" value={searchFilters.ingredient} onChange={handleChange} id="ingredient" placeholder="Nombre o Ingrediente. Ej. vodka, Tequila, Café" className="p-3 w-full rounded-lg focus:outline-none bg-white" />
