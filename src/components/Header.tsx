@@ -1,11 +1,17 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useAppStore } from "../stores/useAppStore";
 
 export default function Header() {
 
     const { pathname } = useLocation()//detectar la ruta en la cual está el usuario
-
     const isHome = useMemo(() => pathname === "/", [pathname])
+    const fetchCategories = useAppStore((state) => state.fetchCategories);
+    const categories = useAppStore((state) => state.categories);
+
+    useEffect(() => {
+        fetchCategories();
+    }, [])
 
 
     return (
@@ -16,7 +22,7 @@ export default function Header() {
                         <img src="/logo.svg" alt="Logotipo" className="w-32" />
                     </div>
                     <nav className="flex gap-4">
-                        <NavLink  to="/" className={({ isActive }) => isActive ? "text-orange-500 uppercase font-bold" : "text-white uppercase font-bold"}>Inicio</NavLink>
+                        <NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500 uppercase font-bold" : "text-white uppercase font-bold"}>Inicio</NavLink>
                         <NavLink to="/favoritos" className={({ isActive }) => isActive ? "text-orange-500 uppercase font-bold" : "text-white uppercase font-bold"}>Favoritos</NavLink>
                     </nav>
                 </div>
@@ -26,10 +32,13 @@ export default function Header() {
                         <div className="space-y-4">
                             <label htmlFor="ingredient" className="block text-white uppercase font-extrabold text-lg">Nombre o Ingrediente</label>
                             <input type="text" name="ingredient" id="ingredient" placeholder="Nombre o Ingrediente. Ej. vodka, Tequila, Café" className="p-3 w-full rounded-lg focus:outline-none bg-white" />
-                        
+
                             <label htmlFor="category" className="block text-white uppercase font-extrabold text-lg">Categoría</label>
                             <select name="category" id="category" className="p-3 w-full rounded-lg focus:outline-none bg-white">
                                 <option value="">-- Seleccionar --</option>
+                                {categories.drinks.map(category => (
+                                    <option key={category.strCategory} value={category.strCategory}> {category.strCategory} </option>
+                                ))}
                             </select>
                         </div>
                         <input type="submit" value="Buscar Recetas" className="cursor-pointer bg-orange-800 hover:bg-orange-900 rounded-lg text-white font-extrabold w-full p-2 uppercase" />
