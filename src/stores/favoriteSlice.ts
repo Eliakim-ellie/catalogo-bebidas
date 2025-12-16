@@ -17,8 +17,9 @@ export const createFavoriteSlice: StateCreator<FavoritesSliceType> = (set, get) 
             // set({favorites: [...get().favorites, recipe]})//esta es una forma, sin usar state
             set((state) => ({favorites: [...state.favorites, recipe]})) //otra forma, utilizando el state
         }
+        localStorage.setItems("favorites", JSON.stringify(get().favorites));
     },
     favoriteExist: (id) => {
         return get().favorites.some(favorite => favorite.idDrink === id);
-    }
+    },
 })
