@@ -2,11 +2,13 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { createRecipeSlice, type RecipeSliceType } from "./recipeSlice";
 import { type  FavoritesSliceType, createFavoriteSlice } from "./favoriteSlice";
+import { createNotificationSlice, type NotificationSliceType } from "./notificationSlice";
 
-export const useAppStore = create<RecipeSliceType & FavoritesSliceType>()(
+export const useAppStore = create<RecipeSliceType & FavoritesSliceType & NotificationSliceType>()(
   devtools((...a) => ({
     //...a toma una copia de los argumentos (set, get) y se puede enviar al slice
     ...createRecipeSlice(...a), //llamar al slice
-    ...createFavoriteSlice(...a)
+    ...createFavoriteSlice(...a),
+    ...createNotificationSlice(...a),
   }))
 );
