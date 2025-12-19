@@ -3,15 +3,18 @@ import IAService from "../services/IAService";
 
 export type AISlice = {
   recipe: string;
+  isGenerating: boolean;
   generateRecipe: (prompt: string) => Promise<void>;
 };
 
 export const createAISlice: StateCreator<AISlice, [], [], AISlice> = (set) => ({
   recipe: "",
+  isGenerating: false,
+
   generateRecipe: async (prompt) => {
 
-    //limpiar la respuesta
-    set({recipe: ""});
+    //limpiar la respuesta y valida si esta generando
+    set({recipe: "", isGenerating: true});
 
     const data = await IAService.generateRecipe(prompt);
 
@@ -21,5 +24,8 @@ export const createAISlice: StateCreator<AISlice, [], [], AISlice> = (set) => ({
         recipe: state.recipe + textPart,
       }));
     }
+
+    //valida que haya terminado de generar una respuesta
+    set({isGenerating: false})
   },
 });
