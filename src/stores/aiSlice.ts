@@ -9,6 +9,10 @@ export type AISlice = {
 export const createAISlice: StateCreator<AISlice, [], [], AISlice> = (set) => ({
   recipe: "",
   generateRecipe: async (prompt) => {
+
+    //limpiar la respuesta
+    set({recipe: ""});
+
     const data = await IAService.generateRecipe(prompt);
 
     //iterar en la respuesta del prompt
