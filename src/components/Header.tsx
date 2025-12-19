@@ -13,6 +13,7 @@ export default function Header() {
     const categories = useAppStore((state) => state.categories);
     const fetchCategories = useAppStore((state) => state.fetchCategories);
     const searchRecipes = useAppStore((state) => state.searchRecipes);
+    const showNotification = useAppStore((state) => state.showNotification);
 
     useEffect(() => {
         fetchCategories();
@@ -30,7 +31,7 @@ export default function Header() {
         
         //validar
         if(Object.values(searchFilters).includes("")){
-            console.log("Todos los campos son obligatorios");
+            showNotification({text: "Todos los campos con obligatorios", error: true});
             return;
         }
 
